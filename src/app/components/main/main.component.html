@@ -1,0 +1,49 @@
+<section>
+  <div class="sections">
+    <div>
+      <div *ngIf="!searchString">
+        <h1>Welcome to</h1>
+        <h2>Spotisearch by CW.</h2>
+      </div>
+
+      <div *ngIf="searchString">
+        <h1>Artists</h1>
+        <h2>You are currently searching for: "{{searchString}}"</h2>
+      </div>
+
+      <p *ngIf="!searchString" class="greeting-paragraph">
+        Search your favourite songs over Spotify, just enter an artist's name in the following search box and enjoy.
+      </p>
+    </div>
+
+    <app-searchbar
+      [(ngModel)]="searchString"
+      (searchedMusic)="searchMusic($event)"
+      ngDefaultControl
+    >
+    </app-searchbar>
+
+    <div *ngIf="searchString">
+      <app-navbar
+        [navDepth]=1
+        (clearActualSearchString)="clearActualSearchString($event)"
+      ></app-navbar>
+    </div>
+  </div>
+
+  <div *ngIf="loadingRequest" class="sections">
+    <app-loading-animation></app-loading-animation>
+  </div>
+
+  <div *ngIf="!searchString && memoryFavSongs && memoryFavSongs.length > 0" class="sections">
+    <app-favorites [object]="memoryFavSongs" [context]="favorites"></app-favorites>
+  </div>
+
+  <div *ngIf="searchString && !loadingRequest" class="sections">
+    <app-results
+      [object]="searchRes" [context]="context"
+    >
+    </app-results>
+    <h1 *ngIf="(searchRes && searchRes.length < 1)">No results found.</h1>
+  </div>
+</section>

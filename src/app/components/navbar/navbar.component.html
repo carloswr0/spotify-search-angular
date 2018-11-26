@@ -1,0 +1,37 @@
+<div class="main-breadcrumbs">
+
+  <div *ngIf="flag"
+    routerLink="/main" 
+    routerLinkActive="active" >
+    <a> 
+      Home
+    </a> 
+  </div>
+
+  <div *ngIf="!flag">
+    <a (click)="clearActualSearchStringMethod()"> 
+      Home
+    </a> 
+  </div>
+
+  <a *ngIf="navDepth > 0" 
+    routerLink="/main" 
+    routerLinkActive="active" (click)="changeContext()">
+     > Artists
+  </a> 
+
+  <a *ngIf="(navDepth > 1 && ArtistData) && !(AlbumData)">
+    > {{ArtistData.name}} 
+  </a> 
+
+  <a *ngIf="(navDepth > 2 && AlbumData)" 
+    routerLink="/artist/{{ArtistData.id}}" 
+    routerLinkActive="active"> 
+      > {{ArtistData.name}} 
+  </a> 
+
+
+  <a *ngIf="(navDepth > 2 && AlbumData)"> 
+    > {{AlbumData.name}} 
+  </a>
+</div>

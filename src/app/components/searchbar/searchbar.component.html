@@ -1,0 +1,19 @@
+<div class="main-search">
+  <i class="search-icon material-icons">search</i>
+  <input id="search-bar-input"
+    *ngIf="context === header"
+    type="text"
+    [(ngModel)]="searchString"
+    (keyup)="onKeyUp(searchString)"
+    class="search-box"
+    placeholder="Type the name of your favorite artist" />
+
+  <input id="search-bar-input"
+    *ngIf="context !== header"
+    type="text"
+    routerLink="/main"
+    routerLinkActive="active"
+    [(ngModel)]="searchString"
+    class="search-box"
+    placeholder="Type the name of your favorite artist" />
+</div>

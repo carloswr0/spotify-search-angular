@@ -1,0 +1,64 @@
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card-flexed {
+    flex-basis: calc(50% - 5px);
+    max-width: calc(50% - 5px);
+    display: flex;
+    align-items: center;
+    height: 85px;
+    max-height: 85px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    flex-direction: row;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.card-flexed:nth-child(even) {
+    margin-left: 5px;
+}
+
+.card-flexed:nth-child(odd) {
+    margin-right: 5px;
+}
+
+li:nth-last-child(-n+2) {
+    margin-bottom: 0px;
+}
+
+.card-flexed:hover {
+    transition: all 0.2s;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.card-flexed .card-image {
+    flex-basis: 60px;
+}
+
+.card-flexed .card-image img{
+    border-radius: 100%;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.card-flexed .card-label {
+    flex-basis: calc(100% - 70px);
+    max-width: calc(100% - 70px);
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.card-flexed .label-artists span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

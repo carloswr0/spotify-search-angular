@@ -1,0 +1,148 @@
+/* Results CSS */ 
+
+.results-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    border: 1px solid #0000003b;
+    border-top: none!important;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.album-cd-header {
+    width: 100%;
+    padding: 5px;
+    background-color:  rgba(0,0,0,0.5);
+    font-weight: bold;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.album-cd-header {
+    margin-top: 0.8rem;
+}
+
+.album-cd-header:first-child {
+    margin-top: 0rem;
+}
+
+.albums-listed-songs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    flex-direction: row;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.save-fav-song {
+    cursor: pointer;
+    margin: 0px 5px;
+    width: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.star-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.save-fav-song:hover {
+    transition: all 0.2s;
+    fill: rgba(0, 0, 0, 0.6);
+}
+
+.save-fav-song .faved {
+    fill: #ffe20094;
+    animation-name: starring;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in;
+
+}
+
+@keyframes starring {
+    0% { 
+        transform: scale( 1 );
+    }
+    50% { 
+        transform: scale( 1.5 );
+    }
+    100%{
+        transform: scale( 1 );    
+    }
+  }
+
+.albums-listed-songs:nth-child(even) {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.albums-listed-songs:hover {
+    transition: all 0.2s;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.albums-listed-songs .image-artists {
+    flex-basis: 60px;
+}
+
+.albums-listed-songs .image-artists img{
+    border-radius: 100%;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.albums-listed-songs .label-artists {
+    flex-basis: calc(100% - 70px);
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.albums-listed-songs .label-artists span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Icon Faved Labels*/
+
+/* Tooltip text */
+.save-fav-song .fav-label {
+    visibility: hidden;
+    width: auto;
+    background-color: #28282887;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    left: 1.5rem;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.save-fav-song:hover .fav-label {
+    visibility: visible;
+    opacity: 1;
+}
+
+ .fav-label::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #28282887 transparent transparent;
+}

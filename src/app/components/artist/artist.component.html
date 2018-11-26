@@ -1,0 +1,33 @@
+<div class="sections"> 
+  <div *ngIf="artistInfo; else loading" class="artist-page" >
+    <div class="artist-page-img">
+      <img *ngIf="artistInfo.images.length > 0" src="{{artistInfo.images[0].url}}" alt="{{artistInfo.name}}" />
+      <img *ngIf="artistInfo.images.length == 0" src="https://npengage.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" alt="{{artistInfo.name}}" />
+    </div>  
+
+    <div class="artist-page-label">
+      <h1>{{artistInfo.name}}</h1>
+      <div class="genre-list">
+        <span>
+          {{artistInfo.genres[0] |titlecase }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <app-navbar
+    *ngIf="artistInfo"
+      [navDepth]=2
+      [prevResults]="prevResults"
+      [prevSearchString]="prevSearchString"
+      [ArtistData]="artistInfo"
+  >
+  </app-navbar>
+
+  <ng-template #loading>
+    <app-loading-animation></app-loading-animation>
+  </ng-template>
+</div>
+
+<div class="sections" *ngIf="artistAlbums">
+  <app-card [object]="artistAlbums" [context]="context" > </app-card>
+</div>

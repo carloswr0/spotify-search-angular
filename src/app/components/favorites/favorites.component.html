@@ -1,0 +1,26 @@
+<h2>Favorite Songs</h2>
+<ul class="card-container">
+  <li 
+    *ngFor="let instance of object" 
+    class="card-flexed" 
+  >
+    <div class="card-image">
+        <img *ngIf="instance.albumImage" 
+        src="{{instance.albumImage}}" 
+        alt="{{instance.name}}" 
+        height="60" width="60"
+      />
+    </div>
+    <div class="card-label">
+      <span class="bold-text">
+        {{instance.songName}}
+      </span>
+      <span *ngIf="instance.artistName">
+        Artist: {{instance.artistName}}
+      </span>
+      <span *ngIf="instance.albumName">
+        Album: {{instance.albumName}}
+      </span>
+    </div> 
+  </li>
+</ul>

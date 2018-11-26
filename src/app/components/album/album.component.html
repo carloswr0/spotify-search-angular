@@ -1,0 +1,48 @@
+<div class="sections"> 
+  <div *ngIf="albumSongs; else loading" class="artist-page">
+    <div class="artist-page-img">
+      <img *ngIf="albumSongs.images.length > 0" src="{{albumSongs.images[0].url}}" alt="{{albumSongs.name}}" />
+      <img *ngIf="albumSongs.images.length === 0" src="https://npengage.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" alt="{{albumSongs.name}}" />
+    </div>  
+
+    <div class="artist-page-label">
+      <h1>{{albumSongs.name}}</h1>
+      <div class="genre-list">
+        <span>
+          {{albumSongs.artists[0].name }} - {{ albumSongs.release_date.slice(0, 4) }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <app-navbar
+    *ngIf="albumSongs"
+    [navDepth]=3
+    [prevResults]="prevResults"
+    [prevSearchString]="prevSearchString"
+    [ArtistData]="prevArtistData"
+    [AlbumData]="albumSongs"
+  ></app-navbar>
+
+  <ng-template #loading>
+    <app-loading-animation></app-loading-animation>
+  </ng-template>
+</div>
+
+<div *ngIf="albumSongs" class="sections">
+  <div class="discs-container" *ngFor="let disc of discTracks">
+    <app-disc
+    [tracks] = "disc"
+    (addedToFavorites) = "addToFavorites($event)"
+   
+    >
+    </app-disc>
+  </div>
+</div>
+
+
+<!--  
+  <div class="save-fav-song" ">
+    <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z"/><path fill="none" d="M0 0h18v18H0z"/></svg>
+  </div>
+-->

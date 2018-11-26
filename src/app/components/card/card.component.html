@@ -1,0 +1,29 @@
+<ul class="card-container">
+  <li 
+    *ngFor="let instance of object" 
+    class="card-flexed" 
+    routerLink="/{{context}}/{{instance.id}}" 
+    routerLinkActive="active"
+  >
+    <div class="card-image">
+        <img *ngIf="instance.images.length > 0" 
+          src="{{instance.images[0].url}}" 
+          alt="{{instance.name}}" 
+          height="60" width="60"
+        />
+        <img *ngIf="instance.images.length === 0" 
+          src="https://npengage.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" 
+          alt="{{instance.name}}" 
+          height="60" width="60"
+        />
+    </div>
+    <div class="card-label">
+      <span class="bold-text">
+        {{instance.name}}
+      </span>
+      <span *ngIf="instance.release_date">
+        {{instance.release_date.slice(0, 4)}}
+      </span>
+    </div> 
+  </li>
+</ul>

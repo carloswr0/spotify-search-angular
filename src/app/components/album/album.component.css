@@ -1,0 +1,38 @@
+.artist-page {
+    display: flex;
+    height: 175px;
+    margin-bottom: 1rem;
+}
+
+.artist-page-img {
+    flex-basis: calc(25% - 0px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px; 
+}
+
+.artist-page-img img {
+    max-height: 145px; /*USAR 100% CUANDO LA IMG MANTENGA ASPECT RATIO */ 
+    border: 1px;
+    border-radius: 5px;
+    box-shadow: 5px 5px #00000047;
+    object-fit: contain;
+}
+
+.artist-page-label {
+    flex-basis: calc(75% - 0px); 
+    margin: 15px;    
+}
+
+.artist-page-label h1 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+.artist-page-label h2 {
+    font-size: 1rem;
+}
+
+.discs-container:nth-child(n+2) {
+    margin-top: 0.8rem;
+} 

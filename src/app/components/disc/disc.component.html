@@ -1,0 +1,18 @@
+<div *ngIf="discnumber" class="album-cd-header">CD {{discnumber.disc_number}}</div>
+  <ul class="results-container">
+
+    <li *ngFor="let songs of tracks" class="albums-listed-songs" >
+      <span class="albums-songs">
+        {{songs.name}}
+      </span>
+
+      <div [ngClass]="{'faved-track': songs.favorited}" class="save-fav-song" (click)="addToFavoritesMethod(songs)">
+        <svg class="star-icon" [ngClass]="{'faved': songs.favorited}" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z"/><path fill="none" d="M0 0h18v18H0z"/></svg>
+        <span class="fav-label">
+            <span *ngIf="songs.favorited">Remove from Favorites</span>
+            <span *ngIf="!songs.favorited">Add to Favorites</span>
+        </span>
+      </div>
+    </li>
+
+  </ul>
