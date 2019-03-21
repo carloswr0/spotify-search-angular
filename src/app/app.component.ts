@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-//importamos el servicio 
+//importamos el servicio
 import { SpotifyService } from './services/spotify.service';
 
 @Component({
@@ -35,7 +35,7 @@ export class AppComponent {
   requestHelp(){
     this.navigationFlow.isHelpShowed = true;
   }
-  
+
   stopRequestHelp(){
     this.navigationFlow.isHelpShowed = false;
   }

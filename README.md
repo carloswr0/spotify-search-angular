@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9437c568-77f5-4da9-b9f3-2ddc711d7462/deploy-status)](https://app.netlify.com/sites/spotity-client-angular2/deploys)
+
 # SpotifyClient
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.0-rc.1.
